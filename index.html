@@ -3,68 +3,275 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Welcome to Grow Smarter With Zidii</title>
-  <link rel="stylesheet" href="style.css">
+ <meta name="description" content="Grow Smarter With Saidia offers guidance, learning, training, and professional growth opportunities.">
+ <title>Grow Smarter With Zidii</title>
+ <link rel="stylesheet" href="style.css">
 </head>
 <body>
+ <div class="app-shell">
+   <header class="site-header">
+     <div class="brand-row">
+       <div>
+         <h2 class="eyebrow">Community growth platform</h2>
+         <h1>Grow Smarter With Zidii</h1>
+       </div>
+     </div>
+     <nav class="navbar">
+       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+       <ul class="nav-links" id="navLinks">
+         <li><a href="#home">Home</a></li>
+         <li><a href="#about">About</a></li>
+         <li><a href="#services">Services</a></li>
+         <li><a href="#dashboard">Dashboard</a></li>
+         <li><a href="#settings">Settings</a></li>
+         <li><a href="#contact">Contact Information</a></li>
+       </ul>
+     </nav>
+   </header>
 
-  <header class="site-header">
-    <h1>Grow Smarter With Zidii</h1>
-    <nav class="navbar">
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+   <div class="layout">
+     <aside class="sidebar">
+       <section class="sidebar-card">
+         <h2>Sidebar</h2>
+         <ul class="sidebar-links">
+           <li><a href="#dashboard">Dashboard</a></li>
+           <li><a href="#settings">Settings</a></li>
+           <li><a href="#contact">Contact Information</a></li>
+         </ul>
+       </section>
 
-  <div class="layout">
-    <aside class="sidebar">
-      <h2>Sidebar</h2>
-      <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Reports</a></li>
-        <li><a href="#">Settings</a></li>
-      </ul>
-    </aside>
+       <section class="sidebar-card">
+         <h3>Zidii support bot</h3>
+         <div id="chatMessages" class="chat-messages">
+           <div class="message bot">Hello! I can help with login, deposits, support, and settings.</div>
+         </div>
+         <form id="chatForm" class="chat-form">
+           <input id="chatInput" type="text" placeholder="Ask for support" aria-label="Ask the support bot" autocomplete="off">
+           <button type="submit">Send</button>
+         </form>
+       </section>
 
-   <main class="main-body">
-  <div class="card">
-    
-    <p class="card-text">
-      Discover helpful resources and opportunities designed to help you learn,
-      grow your skills, and achieve your personal and professional goals.
-    </p>
-    <a href="#" class="btn">Learn More</a>
-  </div>
+       <section class="sidebar-card">
+         <div class="auth-toggle">
+           <button class="auth-mode active" data-form="login" type="button">Login</button>
+           <button class="auth-mode" data-form="register" type="button">Register</button>
+         </div>
+         <form id="authForm" class="auth-form">
+           <label class="auth-field name-field" id="nameField">
+             <span>Full name</span>
+             <input id="fullName" name="fullName" type="text" autocomplete="name" required>
+           </label>
+           <label class="auth-field">
+             <span>Email</span>
+             <input id="email" name="email" type="email" autocomplete="email" required>
+           </label>
+           <label class="auth-field">
+             <span>Password</span>
+             <input id="password" name="password" type="password" autocomplete="current-password" required>
+           </label>
+           <label class="auth-field">
+             <span>Current deposited amount</span>
+             <input id="deposited" name="deposited" type="number" min="0" step="50" value="0">
+           </label>
+           <label class="auth-field">
+             <span>Amount owed</span>
+             <input id="owed" name="owed" type="number" min="0" step="50" value="0">
+           </label>
+           <button type="submit" class="btn">Continue</button>
+         </form>
+         <div id="authStatus" class="status-pill" aria-live="polite">Ready for sign in</div>
+         <div class="profile-summary">
+           <div><span>Deposited</span><strong id="depositedAmount">$0.00</strong></div>
+           <div><span>Owed</span><strong id="owedAmount">$0.00</strong></div>
+         </div>
+       </section>
+     </aside>
 
-  <div class="card">
+     <main class="main-body">
+       <section id="home" class="panel hero">
+         <div class="section-heading">
+           <p class="eyebrow">Home</p>
+           <h2>Featured opportunities</h2>
+           <p>Our platform helps learners, professionals, and communities grow through practical guidance, digital learning, and mentorship about capital savings and investments.</p>
+         </div>
+         <div class="card-grid">
+           <article class="card">
+             <img class="card-image" src="image1.png" alt="Community learning hub">
+             <h3>Community learning hub</h3>
+             <p>Build confidence through guided tutorials, peer support, and action plans through money investments.</p>
+             <button class="btn learn-more" data-target="projectOne" onclick="toggleProjectDetails(this)" type="button" aria-expanded="false">Learn More</button>
+             <div class="project-extra" id="projectOne">This featured project links interested individuals with coaches and local resources for real-world progress.</div>
+           </article>
+           <article class="card">
+             <img class="card-image" src="image2.png" alt="Professional growth labs">
+             <h3>Professional growth labs</h3>
+             <p>Explore workshops designed to sharpen digital, leadership, and financial literacy skills.</p>
+             <button class="btn learn-more" data-target="projectTwo" onclick="toggleProjectDetails(this)" type="button" aria-expanded="false">Learn More</button>
+             <div class="project-extra" id="projectTwo">Career-focused labs prepare users to adapt quickly and contribute meaningfully in fast-moving industries.</div>
+           </article>
+           <article class="card">
+             <img class="card-image" src="image3.png" alt="Support network">
+             <h3>Support network</h3>
+             <p>Stay connected through live conversations, reminders, and follow-up support.</p>
+             <button class="btn learn-more" data-target="projectThree" onclick="toggleProjectDetails(this)" type="button" aria-expanded="false">Learn More</button>
+             <div class="project-extra" id="projectThree">Our support network keeps each individual informed, motivated, and accountable through every milestone in his or her capital investments.</div>
+           </article>
+           <article class="card">
+             <img class="card-image" src="image3.png" alt="Expense tracking">
+             <h3>Expense tracking</h3>
+             <p>Monitor and categorize your daily expenses with ease. Keep track of every purchase and stay within your budget.</p>
+             <button class="btn learn-more" data-target="expenseDetails" onclick="toggleProjectDetails(this)" type="button" aria-expanded="false">Learn More</button>
+             <div class="project-extra" id="expenseDetails">Track transactions, set categories, and view summaries to help manage your finances effectively.</div>
+           </article>
+         </div>
 
-    <p class="card-text">
-      Learn more about Zidii and our mission to empower individuals through
-      knowledge, skills, and meaningful opportunities for growth.
-    </p>
-    <a href="#" class="btn">Learn More</a>
-  </div>
 
-  <div class="card">
-    
-    <p class="card-text">
-      Explore our services, including learning, training, personal development,
-      professional growth, and guidance to help you reach your full potential.
-    </p>
-    <a href="#" class="btn">Learn More</a>
-  </div>
-</main>
-</div>
+       <section id="about" class="panel about-panel">
+         <div class="section-heading">
+           <p class="eyebrow">About</p>
+           <h2>About us</h2>
+           <p>Grow  is a growth-focused community delivering practical tools for learning, self-development, and future-ready careers.</p>
+         </div>
+         <div class="about-grid">
+           <article class="about-card">
+             <h3>Mission statement</h3>
+             <p>To empower individuals with knowledge, support, and meaningful opportunities that help them grow with purpose.</p>
+           </article>
+           <article class="about-card">
+             <h3>Purpose</h3>
+             <p>To create a welcoming ecosystem where people can learn, contribute, and build strong futures.</p>
+           </article>
+           <article class="about-card">
+             <h3>What we deliver</h3>
+             <p>Practical mentoring, digital resources, learning pathways, training, and growth-based partnerships.</p>
+           </article>
+         </div>
+         <div class="vision-tabs">
+           <div class="tab-buttons">
+             <button class="tab-button active" data-panel="guidance" type="button">Guidance</button>
+             <button class="tab-button" data-panel="learning" type="button">Learning</button>
+             <button class="tab-button" data-panel="training" type="button">Training</button>
+             <button class="tab-button" data-panel="growth" type="button">Professional growth</button>
+           </div>
+           <div class="tab-panel active" id="guidance">
+             <p>Receive clear direction through step-by-step support and expert guidance that keeps your goals moving forward.</p>
+           </div>
+           <div class="tab-panel" id="learning">
+             <p>Access curated learning experiences that help you gain confidence, skills, and a stronger foundation for success.</p>
+           </div>
+           <div class="tab-panel" id="training">
+             <p>Develop your strengths with structured training that turns interest into capability and practical action.</p>
+           </div>
+           <div class="tab-panel" id="growth">
+             <p>Advance into leadership, innovation, and career opportunities with resources tailored to long-term growth.</p>
+           </div>
+         </div>
+       </section>
 
-  <footer class="site-footer">
-    <h3>&copy; 2026 Grow Smarter With Zidii</h3>
-  </footer>
+       <section id="services" class="panel services-panel">
+         <div class="section-heading">
+           <p class="eyebrow">Services</p>
+           <h2>Services</h2>
+         </div>
+         <div class="service-tabs">
+           <button class="service-button active" data-service="mentorship" type="button">Mentorship</button>
+           <button class="service-button" data-service="journeys" type="button">Learning journeys</button>
+           <button class="service-button" data-service="programs" type="button">Training programs</button>
+           <button class="service-button" data-service="career" type="button">Career growth</button>
+         </div>
+         <div class="service-panel active" id="mentorship">
+           <p>One-on-one mentoring keeps your progress realistic, personal, and paced for sustainable success.</p>
+         </div>
+         <div class="service-panel" id="journeys">
+           <p>Learning journeys combine resources, tasks, and milestones so every step feels purposeful and manageable.</p>
+         </div>
+         <div class="service-panel" id="programs">
+           <p>Training programs focus on practical skills, confidence, and measurable outcomes you can apply immediately.</p>
+         </div>
+         <div class="service-panel" id="career">
+           <p>Career growth services connect ambition with opportunities through preparation, positioning, and support.</p>
+         </div>
+       </section>
 
-  <script src="script.js"></script>
+       <section id="dashboard" class="panel dashboard-panel">
+         <div class="section-heading">
+           <p class="eyebrow">Dashboard</p>
+           <h2>Analytics</h2>
+         </div>
+         <div class="dashboard-grid">
+           <article class="dashboard-card">
+             <div class="chart-header">
+               <h3>Cumulative growth</h3>
+               <p id="graphSummary">Your progress is rising steadily.</p>
+             </div>
+             <svg id="growthChart" viewBox="0 0 400 220" role="img" aria-label="Cumulative growth graph">
+               <line x1="20" y1="180" x2="380" y2="180" class="axis"></line>
+               <line x1="20" y1="20" x2="20" y2="180" class="axis"></line>
+               <polyline id="growthLine" points="20,160 100,130 180,110 260,90 340,50"></polyline>
+             </svg>
+             <div class="metric-grid">
+               <div class="metric">
+                 <span>Deposited</span>
+                 <strong id="depositedMetric">$0.00</strong>
+               </div>
+               <div class="metric">
+                 <span>Owed</span>
+                 <strong id="owedMetric">$0.00</strong>
+               </div>
+               <div class="metric">
+                 <span>Balance</span>
+                 <strong id="balanceMetric">$0.00</strong>
+               </div>
+             </div>
+           </article>
+           <article class="dashboard-card">
+             <h3>Application snapshot</h3>
+             <ul class="snapshot-list">
+               <li>Interactive home cards for featured projects</li>
+               <li>About and service sections with switchable tabs</li>
+               <li>AI support and user account management built in</li>
+             </ul>
+           </article>
+         </div>
+       </section>
+
+       <section id="settings" class="panel settings-panel">
+         <div class="section-heading">
+           <p class="eyebrow">Settings</p>
+           <h2>Preferences</h2>
+         </div>
+         <div class="settings-grid">
+           <label class="setting-field">
+             <span>Dark mode</span>
+             <input id="themeToggle" type="checkbox">
+           </label>
+           <label class="setting-field">
+             <span>Compact cards</span>
+             <input id="compactToggle" type="checkbox">
+           </label>
+         </div>
+         <p class="settings-note">Use the theme and layout toggles to personalize the experience.</p>
+       </section>
+
+       <section id="contact" class="panel contact-panel">
+         <div class="section-heading">
+           <p class="eyebrow">Contact</p>
+           <h2>Get in touch</h2>
+         </div>
+         <div class="contact-card">
+           <p><strong>Email:</strong> <a href="mailto:timmulwa123@gmail.com">timmulwa123@gmail.com</a></p>
+           <p><strong>Inquiries:</strong> For technical assistance, training requests, or community support.</p>
+           <p><strong>Support:</strong> Our AI assistant can guide you with navigation, account help, and product questions.</p>
+         </div>
+       </section>
+     </main>
+   </div>
+
+   <footer class="site-footer">
+     <h3>&copy; 2026 Grow Smarter With Zidii</h3>
+   </footer>
+ </div>
+
+ <script src="script.js"></script>
 </body>
 </html>
